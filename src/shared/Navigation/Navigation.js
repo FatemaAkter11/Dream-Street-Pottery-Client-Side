@@ -17,8 +17,10 @@ const Navigation = () => {
                             <li className="nav-item">
                                 <Link className="nav-link active text-white" aria-current="page" to="/home">Home</Link>
                             </li>
+
                         </ul>
-                        <button className="log_btn text-white fs-5 p-1 mt-2">Login</button>
+
+                        <Link className="nav-link active text-white log_btn fs-5 p-1 mt-2" aria-current="page" to="/login">Login</Link>
                     </div>
                 </div>
             </nav>
