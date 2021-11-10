@@ -24,12 +24,14 @@ const Footer = () => {
 
                     </div>
                     <div className="col-md-3 col-12">
-                        <p className="text-white">Get The App</p>
-                        <i className="text-white fab fa-twitter"></i>
-                        <i className="text-white fab fa-facebook ps-2"></i>
-                        <i className="text-white fab fa-linkedin ps-2"></i>
+                        <p className="text-white">Get the App</p>
+                        <i className="text-white fs-2 fab fa-twitter"></i>
+                        <i className="text-white fs-2 fab fa-facebook ps-2"></i>
+                        <i className="text-white fs-2 fab fa-linkedin ps-2"></i>
+                        <i className="text-white fs-2 fab fa-telegram-plane ps-2"></i>
                     </div>
-                    <p className="text-white px-2 pt-3">© 2021 Dream street pottery. All rights reserved</p>
+                    <br /> <br />
+                    <p className="text-white px-2 mt-5">© 2021 Dream street pottery. All rights reserved</p>
                 </div>
             </div>
         </footer>
