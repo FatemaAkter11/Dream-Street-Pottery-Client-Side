@@ -5,13 +5,13 @@ import Product from '../Product/Product';
 const Products = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('')
+        fetch('./products.json')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])
     return (
         <div>
-            {/* <Container className="py-5">
+            <Container className="py-5">
                 <Row>
                     {products?.map((product) => (
                         <Product
@@ -21,7 +21,7 @@ const Products = () => {
                         </Product>
                     ))}
                 </Row>
-            </Container> */}
+            </Container>
         </div>
     );
 };

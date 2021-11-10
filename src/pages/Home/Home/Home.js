@@ -1,53 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
+import Feedback from '../Feedback/Feedback';
+import Product from '../Product/Product';
 
 const Home = () => {
+    const [products, setProducts] = useState([])
+    useEffect(() => {
+        fetch('./products.json')
+            .then(res => res.json())
+            .then(data => setProducts(data));
+    }, [])
     return (
         <div>
             <Banner />
-
-            {/* extra feedback part  */}
-            <section className="container mt-5 pt-5 mb-5">
-                <div className="row d-flex justify-content-center">
-                    <div className="col-lg-8 bg-dark px-5 rounded  mt-5 pb-4">
-                        <div className="row">
-                            <div className="card-header bg-dark mt-4">
-                                <h1 className="text-white text-uppercase">Feedback Us</h1>
-                                <div className="col-sm-12 border border-bottom border-primary"></div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-5 border-right">
-                                <form>
-                                    <div className="">
-                                        <label for="exampleInputEmail1" className="form-label">Email address</label>
-                                        <input type="email" className="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Email" />
-                                        <div id="emailHelp" className="form-text text-white">We'll never share your email with
-                                            anyone else.
-                                        </div>
-                                    </div>
-                                    <div className="mb-3">
-                                        <label for="exampleInputPassword1" className="form-label">Password</label>
-                                        <input type="password" className="form-control" id="exampleInputPassword1"
-                                            placeholder="password" />
-                                    </div>
-                                    <div className="input-group mb-3">
-                                        <textarea className="form-control" aria-label="With textarea"
-                                            placeholder="Message"></textarea>
-                                    </div>
-                                    <div className="mb-3 form-check">
-                                        <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                                        <label className="form-check-label text-white" for="exampleCheck1">I am not a
-                                            Robot</label>
-                                    </div>
-                                    <button type="submit" className="btn btn-warning">Submit</button>
-                                </form>
-                            </div>
-                        </div>
+            {/* products area*/}
+            <div className="row">
+                <h1 className="fw-bold fs-1 mb-5">Our products</h1>
+                <div className="col-md-12">
+                    {/* product data load */}
+                    <div className="row ms-4">
+                        {
+                            products.slice(0, 6)?.map(product => <Product
+                                key={product.id}
+                                product={product}
+                            >
+                            </Product>)
+                        }
                     </div>
                 </div>
-            </section>
+            </div>
+
+            <Feedback />
         </div>
     );
 };
