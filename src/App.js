@@ -14,6 +14,7 @@ import Products from './pages/Home/Products/Products';
 import Explore from './pages/Home/Explore/Explore';
 import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
 import Purchase from './pages/Home/Purchase/Purchase';
+import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 // import AddProducts from './pages/Home/AddProducts/AddProducts';
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
             <Route path="/products">
               <Products />
             </Route>
+            <PrivateRoute path="/dashboard">
+              <Dashboard />
+            </PrivateRoute>
             <Route path="/explore">
               <Explore />
             </Route>

@@ -61,7 +61,7 @@ const Register = () => {
                         <TextField
                             sx={{ width: '75%', m: 1 }}
                             id="standard-basic"
-                            label="ReType Your Password"
+                            label="Repeat Your Password"
                             type="password"
                             name="password2"
                             onBlur={handleOnBlur}

@@ -17,15 +17,6 @@ const Purchase = () => {
 
     return (
 
-        // <div className="container text-center mt-4 mb-2 pb-5">
-        //     <div className="w-50 mx-auto card p-3">
-        //         <h1>{user.email}</h1>
-        //         <h1>{user.displayName}</h1>
-        //         <img src={findProducts?.img} alt="" />
-        //         <h2>{findProducts?.title} </h2>
-        //     </div>
-
-        // </div>
         <div>
             <div className="row my-5">
                 <div style={{ backgroundColor: 'honeydew' }} className="col-lg-6 col-md-12 col-sm-12 w-25 mx-auto card p-3">
