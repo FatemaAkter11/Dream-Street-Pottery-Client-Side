@@ -1,6 +1,7 @@
+import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { Alert, Spinner } from 'react-bootstrap';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import login from '../../images/login.gif';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
@@ -29,52 +30,47 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <section className="container mt-5 pt-5 mb-5">
-                <div className="row d-flex justify-content-center">
-                    <div className="col-lg-8 bg-dark px-5 rounded  mt-5 pb-4">
-                        <div className="row">
-                            <div className="card-header bg-dark mt-4">
-                                <h1 className="text-white text-uppercase">Please Login</h1>
-                                <div className="col-sm-12 border border-bottom border-primary"></div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-5 border-right">
-                                <form onSubmit={handleLoginSubmit}>
-                                    <div className="">
-                                        <label for="exampleInputEmail1" className="form-label">Email address</label>
-                                        <input type="email" className="form-control" id="exampleInputEmail1"
-                                            onChange={handleOnChange}
-                                            aria-describedby="emailHelp" placeholder="Email" />
-                                    </div>
-                                    <div className="mb-3">
-                                        <label for="exampleInputPassword1" className="form-label">Password</label>
-                                        <input type="password" className="form-control" id="exampleInputPassword1"
-                                            onChange={handleOnChange}
-                                            placeholder="password" />
-                                    </div>
-                                    <button type="submit" className="text-white log_btn fs-5 p-1 mt-2 mb-3">Login</button>
-                                    <div>
-                                        <NavLink
-                                            style={{ textDecoration: 'none' }}
-                                            to="/register">
-                                            <button >New User? Please Register</button>
-                                        </NavLink>
-                                        {isLoading && <Spinner />}
-                                        {user?.email && <Alert severity="success">Login successfully!</Alert>}
-                                        {authError && <Alert severity="error">{authError}</Alert>}
-                                    </div>
-                                </form>
-                                <p>------------------------</p>
-                                <button onClick={handleGoogleSignIn} style={{ width: "190px" }} className="text-white log_btn fs-5 mt-2 mb-3"><i className="fab fa-google"></i> Google Sign In</button>
+        <Container>
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={6}>
+                    <img style={{ width: '100%' }} src={login} alt="" />
+                </Grid>
+                <Grid item sx={{ mt: 8 }} xs={12} md={6}>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+                    <Typography variant="h3" gutterBottom>Please Login</Typography>
+
+                    <form onSubmit={handleLoginSubmit}>
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            id="standard-basic"
+                            label="Enter Your Email"
+                            name="email"
+                            onChange={handleOnChange}
+                            variant="standard" />
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            id="standard-basic"
+                            label="Enter Your Password"
+                            type="password"
+                            name="password"
+                            onChange={handleOnChange}
+                            variant="standard" />
+
+                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained" color="warning">Login <i className="ps-1 fas fa-sign-in-alt"></i></Button>
+                        <NavLink
+                            style={{ textDecoration: 'none' }}
+                            to="/register">
+                            <Button variant="text">New User? Please Register</Button>
+                        </NavLink>
+                        {isLoading && <CircularProgress />}
+                        {user?.email && <Alert severity="success">Login successfully!</Alert>}
+                        {authError && <Alert severity="error">{authError}</Alert>}
+                    </form>
+                    <p>-------------OR--------------</p>
+                    <Button onClick={handleGoogleSignIn} variant="contained" color="warning"> <i className="fab fa-google pe-1"></i>Google Sign In</Button>
+                </Grid>
+            </Grid>
+        </Container>
     );
 };
 
