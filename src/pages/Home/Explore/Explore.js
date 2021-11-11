@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Banner from '../Banner/Banner';
-import Feedback from '../Feedback/Feedback';
 import Product from '../Product/Product';
 
-const Home = () => {
+const Explore = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/products')
@@ -12,15 +10,14 @@ const Home = () => {
     }, [])
     return (
         <div>
-            <Banner />
             {/* products area*/}
             <div className="row">
-                <h1 className="fw-bold fs-1 mb-5">Our products</h1>
+                <h1 className="fw-bold fs-1 mb-5">Our All products Area</h1>
                 <div className="col-md-12">
                     {/* product data load */}
                     <div className="row ms-4">
                         {
-                            products.slice(0, 6)?.map(product => <Product
+                            products?.map(product => <Product
                                 key={product.id}
                                 product={product}
                             >
@@ -29,10 +26,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
-            <Feedback />
         </div>
     );
 };
 
-export default Home;
+export default Explore;

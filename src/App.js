@@ -10,6 +10,8 @@ import Footer from './shared/Footer/Footer';
 import Login from './Login/Login/Login';
 import Register from './Login/Register/Register';
 import AuthProvider from './context/AuthProvider';
+import Products from './pages/Home/Products/Products';
+import Explore from './pages/Home/Explore/Explore';
 // import AddProducts from './pages/Home/AddProducts/AddProducts';
 
 function App() {
@@ -24,6 +26,12 @@ function App() {
             </Route>
             <Route path="/home">
               <Home />
+            </Route>
+            <Route path="/products">
+              <Products />
+            </Route>
+            <Route path="/explore">
+              <Explore />
             </Route>
             <Route path="/login">
               <Login />
