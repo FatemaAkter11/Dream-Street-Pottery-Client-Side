@@ -3,7 +3,7 @@ import { Card, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 const Product = ({ product }) => {
-    const { id, img, title, description, price } = product;
+    const { _id, img, title, description, price } = product;
 
     return (
         <Col sm={12} md={6} lg={4}>
@@ -18,7 +18,7 @@ const Product = ({ product }) => {
 
                     <Card.Body className="d-flex">
                         <NavLink
-                            to={`/products/${id}`}
+                            to={`/purchase/${_id}`}
                             className="btn btn-primary w-100 me-1"
                         >
                             Purchase

@@ -12,6 +12,8 @@ import Register from './Login/Register/Register';
 import AuthProvider from './context/AuthProvider';
 import Products from './pages/Home/Products/Products';
 import Explore from './pages/Home/Explore/Explore';
+import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
+import Purchase from './pages/Home/Purchase/Purchase';
 // import AddProducts from './pages/Home/AddProducts/AddProducts';
 
 function App() {
@@ -33,6 +35,9 @@ function App() {
             <Route path="/explore">
               <Explore />
             </Route>
+            <PrivateRoute path="/purchase/:productId">
+              <Purchase />
+            </PrivateRoute>
             <Route path="/login">
               <Login />
             </Route>

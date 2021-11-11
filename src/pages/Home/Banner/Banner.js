@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import Product from '../Product/Product';
+import { Link } from 'react-router-dom';
 import './Banner.css';
 
 const Banner = () => {
@@ -13,7 +12,8 @@ const Banner = () => {
     }, [])
 
     return (
-        <div>
+
+        <div className="banner">
             <section className="container my-5">
                 <div className="row d-flex flex-lg-row align-items-center py-5">
                     <div className="col-lg-6 col-md-5 col-12">
@@ -23,9 +23,9 @@ const Banner = () => {
                         </p>
                         {/* <!-- explore buttons --> */}
                         {/* <button type="button" className="btn text-white p-2 fs-4 rounded" data-bs-toggle="modal"
-                            style={{ backgroundColor: '#E76F51', width: '168px' }} data-bs-target="#exampleModal">
-                            Explore
-                        </button> */}
+                        style={{ backgroundColor: '#E76F51', width: '168px' }} data-bs-target="#exampleModal">
+                        Explore
+                    </button> */}
                         <Link to='/explore'>
                             <button className="btn text-white p-2 fs-4 rounded" style={{ backgroundColor: '#E76F51', width: '168px' }}>Explore</button>
                         </Link>
