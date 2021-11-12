@@ -20,7 +20,7 @@ const Purchase = () => {
 
     const onSubmit = (data) => {
         // data.email = email;
-        // data.status = "pending";
+        data.status = "pending";
 
         fetch("http://localhost:5000/confirmOrder", {
             method: "POST",
@@ -46,11 +46,12 @@ const Purchase = () => {
                 <div className="col-lg-6 col-sm-12 w-25 mx-auto card p-3" style={{ backgroundColor: 'honeydew' }}>
                     <div className="mt-5">
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <input
+
+                            {findProducts?.title && <input
                                 {...register("title", { required: true })}
                                 defaultValue={findProducts?.title}
                                 className="p-2 m-2 w-100"
-                            />
+                            />}
                             <br />
                             <input
                                 {...register("name")}
@@ -63,11 +64,11 @@ const Purchase = () => {
                                 defaultValue={user.email}
                                 className="p-2 m-2 w-100"
                             />
-                            <input
+                            {findProducts?.price && <input
                                 {...register("price", { required: true })}
                                 defaultValue={findProducts?.price}
                                 className="p-2 m-2 w-100"
-                            />
+                            />}
                             <br />
                             <input
                                 {...register("date")}

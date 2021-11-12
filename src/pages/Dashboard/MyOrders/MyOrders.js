@@ -55,8 +55,8 @@ const MyOrders = () => {
                             <br />
                             <br />
 
-                            <button className="btn btn-danger"
-                                onChange={handleStatus} onClick={() => handleUpdate(order._id)}>Pending</button>
+                            <button onChange={handleStatus} className="btn btn-danger"
+                            >{order.status}</button>
                         </div>
 
                     </Card>)

@@ -36,13 +36,10 @@ const ManageOrder = () => {
                             <h1>Title: {order.title}</h1>
                             <h3>Product Id: {order._id}</h3>
                             <h3>User Name: {order.name}</h3>
-                            {/* <input
-                                onChange={handleStatus}
-                                type="text"
-                                defaultValue={orders.status}
-                            /> */}
+
                             <button className="btn btn-danger"
-                                onChange={handleStatus} onClick={() => handleUpdate(order._id)}>Pending</button>
+                                onChange={handleStatus}
+                                onClick={() => handleUpdate(order._id)}>{order.status}</button>
                         </div>
                     </div>)
                 }
