@@ -23,6 +23,7 @@ import AddProduct from '../AddProduct/AddProduct';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import MyOrders from '../MyOrders/MyOrders';
 import DashboardHome from '../DashboardHome/DashboardHome';
+import Payment from '../Payment/Payment';
 
 
 const drawerWidth = 200;
@@ -46,7 +47,7 @@ function Dashboard(props) {
             <Divider />
             <Link to='/home' style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Home</Button></Link>
             {!admin && <Box>
-                <Link to={`${url}/pay`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Pay</Button></Link>
+                <Link to={`${url}/pay`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Payment</Button></Link>
 
                 <Link to={`${url}/myOrders`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">My Orders</Button></Link>
 
@@ -140,6 +141,9 @@ function Dashboard(props) {
                     </Route>
                     <Route path={`${path}/myOrders`}>
                         <MyOrders></MyOrders>
+                    </Route>
+                    <Route path={`${path}/pay`}>
+                        <Payment></Payment>
                     </Route>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
