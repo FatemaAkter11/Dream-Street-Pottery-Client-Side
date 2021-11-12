@@ -26,6 +26,7 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../../Login/AdminRoute/AdminRoute';
 import AddProduct from '../AddProduct/AddProduct';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 const drawerWidth = 200;
 
@@ -91,9 +92,6 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    {/* <Typography variant="h6" noWrap component="div">
-                        Dashboard
-                    </Typography> */}
                 </Toolbar>
                 <Typography variant="h3" noWrap component="div">
                     Dashboard
@@ -144,6 +142,9 @@ function Dashboard(props) {
                     </AdminRoute>
                     <AdminRoute path={`${path}/addProduct`}>
                         <AddProduct></AddProduct>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageProducts`}>
+                        <ManageProducts></ManageProducts>
                     </AdminRoute>
                 </Switch>
             </Box>

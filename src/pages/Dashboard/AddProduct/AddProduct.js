@@ -22,7 +22,7 @@ const AddProduct = () => {
             <h2 className="my-4">Please Add a Product</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("img")} placeholder="image url" />
-                <input {...register("name", { required: true, maxLength: 23 })} placeholder="Title" />
+                <input {...register("title", { required: true, maxLength: 23 })} placeholder="Title" />
                 <textarea {...register("description")} placeholder="Description" />
                 <input {...register("price")} placeholder="Price" />
                 <input className="text-white log_btn fs-5 p-1 mt-2 mb-3" type="submit" />
