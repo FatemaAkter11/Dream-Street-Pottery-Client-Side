@@ -29,17 +29,6 @@ const MyOrders = () => {
             })
     }
 
-    const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
-            method: "PUT",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify({ status }),
-        });
-
-        // console.log(id);
-    };
-
-
     return (
         <div>
             <h2 className="mt-5">My Orders : {orders.length}</h2>

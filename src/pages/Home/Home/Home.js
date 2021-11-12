@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Review from '../../Dashboard/Review/Review';
 import Banner from '../Banner/Banner';
 import Feedback from '../Feedback/Feedback';
 import Product from '../Product/Product';
@@ -28,6 +29,10 @@ const Home = () => {
                         }
                     </div>
                 </div>
+            </div>
+            {/* review */}
+            <div>
+                <h2>Users Review</h2>
             </div>
 
             <Feedback />

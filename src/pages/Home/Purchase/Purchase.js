@@ -19,9 +19,6 @@ const Purchase = () => {
     console.log(findProducts);
 
     const onSubmit = (data) => {
-        // data.email = email;
-        data.status = "pending";
-
         fetch("http://localhost:5000/confirmOrder", {
             method: "POST",
             headers: { "content-type": "application/json" },
