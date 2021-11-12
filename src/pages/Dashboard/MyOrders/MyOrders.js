@@ -28,10 +28,11 @@ const MyOrders = () => {
         <div>
             <h2 className="mt-5">My Orders</h2>
             <hr />
-            <Container className="py-5 my-5">
+            <Container className="py-5 mt-3">
                 {
                     orders?.map((order) => <Card className="my-5" style={{ backgroundColor: 'honeydew' }} key={order.id}>
                         <div className="py-5">
+                            <h1>Title: {order.title}</h1>
                             <h3>Product Id: {order._id}</h3>
                             <h3>User Name: {order.name}</h3>
                             <button className="btn btn-danger" onClick={() => handleDelete(order._id)}>Delete</button>

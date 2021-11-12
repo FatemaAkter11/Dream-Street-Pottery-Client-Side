@@ -47,6 +47,7 @@ const Purchase = () => {
                     <div className="mt-5">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input
+                                {...register("title", { required: true })}
                                 defaultValue={findProducts?.title}
                                 className="p-2 m-2 w-100"
                             />
@@ -63,7 +64,7 @@ const Purchase = () => {
                                 className="p-2 m-2 w-100"
                             />
                             <input
-                                {...register("price")}
+                                {...register("price", { required: true })}
                                 defaultValue={findProducts?.price}
                                 className="p-2 m-2 w-100"
                             />
