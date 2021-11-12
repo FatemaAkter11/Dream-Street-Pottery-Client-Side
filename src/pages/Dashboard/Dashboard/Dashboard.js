@@ -6,12 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -27,6 +21,9 @@ import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../../Login/AdminRoute/AdminRoute';
 import AddProduct from '../AddProduct/AddProduct';
 import ManageProducts from '../ManageProducts/ManageProducts';
+import MyOrders from '../MyOrders/MyOrders';
+import DashboardHome from '../DashboardHome/DashboardHome';
+
 
 const drawerWidth = 200;
 
@@ -46,25 +43,27 @@ function Dashboard(props) {
             <Toolbar />
             <Toolbar />
             <Divider />
-            <Link to="/home" style={{ textDecoration: 'none' }}><Button color="inherit">Home</Button></Link>
             <Divider />
-            <Link to="/pay" style={{ textDecoration: 'none' }}><Button color="inherit">Pay</Button></Link>
-            <Divider />
-            <Link to="/myorders" style={{ textDecoration: 'none' }}><Button color="inherit">My Orders</Button></Link>
-            <Divider />
-            <Link to="/review" style={{ textDecoration: 'none' }}><Button color="inherit">Review</Button></Link>
-            <Divider />
-            {admin && <Box>
-                <Link to={`${url}/manageOrder`} style={{ textDecoration: 'none' }}><Button color="inherit">Manage All Orders</Button></Link>
-                <Divider />
-                <Link to={`${url}/addProduct`} style={{ textDecoration: 'none' }}><Button color="inherit">Add A Product</Button></Link>
-                <Divider />
-                <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}><Button color="inherit">Make Admin</Button></Link>
-                <Divider />
-                <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none' }}><Button color="inherit">Manage Products</Button></Link>
-                <Divider />
+            {!admin && <Box>
+                <Link to={`${url}/pay`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Pay</Button></Link>
+
+                <Link to={`${url}/myorders`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">My Orders</Button></Link>
+
+                <Link to={`${url}/review`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Review</Button></Link>
             </Box>}
-            <Link to="/logout" style={{ textDecoration: 'none' }}><Button color="inherit">Logout</Button></Link>
+
+            {admin && <Box>
+                <Link to={`${url}/manageOrder`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Manage All Orders</Button></Link>
+
+                <Link to={`${url}/addProduct`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Add A Product</Button></Link>
+
+                <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Make Admin</Button></Link>
+
+                <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Manage Products</Button></Link>
+
+            </Box>}
+            <Link to='/home' style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Logout</Button></Link>
+            <Divider />
             <Divider />
 
         </div>
@@ -84,7 +83,7 @@ function Dashboard(props) {
             >
                 <Toolbar>
                     <IconButton
-                        color="inherit"
+                        variant="contained" color="warning"
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
@@ -133,9 +132,13 @@ function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
+                <Toolbar />
                 <Switch>
                     <Route exact path={path}>
-                        {/* <DashboardHome></DashboardHome> */}
+                        <DashboardHome></DashboardHome>
+                    </Route>
+                    <Route path={`${path}/myorders`}>
+                        <MyOrders></MyOrders>
                     </Route>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
