@@ -44,10 +44,11 @@ function Dashboard(props) {
             <Toolbar />
             <Divider />
             <Divider />
+            <Link to='/home' style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Home</Button></Link>
             {!admin && <Box>
                 <Link to={`${url}/pay`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Pay</Button></Link>
 
-                <Link to={`${url}/myorders`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">My Orders</Button></Link>
+                <Link to={`${url}/myOrders`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">My Orders</Button></Link>
 
                 <Link to={`${url}/review`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Review</Button></Link>
             </Box>}
@@ -137,7 +138,7 @@ function Dashboard(props) {
                     <Route exact path={path}>
                         <DashboardHome></DashboardHome>
                     </Route>
-                    <Route path={`${path}/myorders`}>
+                    <Route path={`${path}/myOrders`}>
                         <MyOrders></MyOrders>
                     </Route>
                     <AdminRoute path={`${path}/makeAdmin`}>

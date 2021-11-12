@@ -47,6 +47,11 @@ const Purchase = () => {
                     <div className="mt-5">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input
+                                defaultValue={findProducts?.title}
+                                className="p-2 m-2 w-100"
+                            />
+                            <br />
+                            <input
                                 {...register("name")}
                                 defaultValue={user.displayName}
                                 className="p-2 m-2 w-100"
