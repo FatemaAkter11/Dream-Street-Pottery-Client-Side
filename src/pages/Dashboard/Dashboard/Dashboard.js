@@ -22,11 +22,10 @@ import {
     useRouteMatch
 } from "react-router-dom";
 import { Button } from '@mui/material';
-// import DashboardHome from '../DashboardHome/DashboardHome';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
-// import AddDoctor from '../AddDoctor/AddDoctor';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../../Login/AdminRoute/AdminRoute';
+import AddProduct from '../AddProduct/AddProduct';
 
 const drawerWidth = 200;
 
@@ -55,9 +54,13 @@ function Dashboard(props) {
             <Link to="/review" style={{ textDecoration: 'none' }}><Button color="inherit">Review</Button></Link>
             <Divider />
             {admin && <Box>
+                <Link to={`${url}/manageOrder`} style={{ textDecoration: 'none' }}><Button color="inherit">Manage All Orders</Button></Link>
+                <Divider />
+                <Link to={`${url}/addProduct`} style={{ textDecoration: 'none' }}><Button color="inherit">Add A Product</Button></Link>
+                <Divider />
                 <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}><Button color="inherit">Make Admin</Button></Link>
                 <Divider />
-                <Link to={`${url}/addDoctor`} style={{ textDecoration: 'none' }}><Button color="inherit">Add Doctor</Button></Link>
+                <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none' }}><Button color="inherit">Manage Products</Button></Link>
                 <Divider />
             </Box>}
             <Link to="/logout" style={{ textDecoration: 'none' }}><Button color="inherit">Logout</Button></Link>
@@ -88,10 +91,13 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
+                    {/* <Typography variant="h6" noWrap component="div">
                         Dashboard
-                    </Typography>
+                    </Typography> */}
                 </Toolbar>
+                <Typography variant="h3" noWrap component="div">
+                    Dashboard
+                </Typography>
             </AppBar>
             <Box
                 component="nav"
@@ -133,11 +139,11 @@ function Dashboard(props) {
                     <Route exact path={path}>
                         {/* <DashboardHome></DashboardHome> */}
                     </Route>
-                    <AdminRoute>
+                    <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </AdminRoute>
-                    <AdminRoute path={`${path}/addDoctor`}>
-                        {/* <AddDoctor></AddDoctor> */}
+                    <AdminRoute path={`${path}/addProduct`}>
+                        <AddProduct></AddProduct>
                     </AdminRoute>
                 </Switch>
             </Box>

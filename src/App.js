@@ -48,9 +48,6 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
-            {/* <Route path="/addproducts">
-            <AddProducts />
-          </Route> */}
           </Switch>
           <Footer />
         </Router>
