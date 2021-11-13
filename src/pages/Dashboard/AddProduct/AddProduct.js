@@ -17,6 +17,7 @@ const AddProduct = () => {
                 }
             })
     }
+
     return (
         <div className="add-service">
             <h2 className="my-4">Please Add a Product</h2>
