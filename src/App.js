@@ -15,7 +15,7 @@ import Explore from './pages/Home/Explore/Explore';
 import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
 import Purchase from './pages/Home/Purchase/Purchase';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
-// import AddProducts from './pages/Home/AddProducts/AddProducts';
+import NotFound from './pages/Home/NotFound/NotFound';
 
 function App() {
   return (
@@ -47,6 +47,9 @@ function App() {
             </Route>
             <Route path="/register">
               <Register />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
           <Footer />

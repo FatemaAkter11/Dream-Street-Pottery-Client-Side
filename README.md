@@ -1,6 +1,6 @@
 # Dream Street Pottery
 
-This project was bootstrapped with [Dream Street Pottery](https://hungrynaki-f2c05.web.app/).
+This project was bootstrapped with [Dream Street Pottery](https://dream-street-pottery.web.app/).
 
 ## Description
 Dream Street Pottery respects your privacy. This Privacy Policy describes how the Company collects, uses, maintains, discloses, and protects Personal Information, as well as the rights and choices You have regarding Your Personal Information, including how You can access and update Your Personal Information.“Personal Information” is information that identifies You or could be combined by the Company or the Company’s services providers or affiliates with other information to identify You.

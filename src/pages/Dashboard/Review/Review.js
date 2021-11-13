@@ -8,7 +8,7 @@ const Review = () => {
 
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/review', data)
+        axios.post('https://dry-waters-74800.herokuapp.com/review', data)
             .then(res => {
                 // console.log(res);
                 if (res.data.insertedId) {

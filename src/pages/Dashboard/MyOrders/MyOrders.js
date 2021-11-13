@@ -10,13 +10,13 @@ const MyOrders = () => {
         setStatus(e.target.value);
     };
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://dry-waters-74800.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data));
     }, [])
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/deleteOrder/${id}`;
+        const url = `https://dry-waters-74800.herokuapp.com/deleteOrder/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
