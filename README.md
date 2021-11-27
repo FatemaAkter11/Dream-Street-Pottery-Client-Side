@@ -13,5 +13,4 @@ In my project services, you can know about this project:
 <li>Have a different dashboard for the Admin panel and users.</li>
 <li>Users can order different pottery items and also can see the order details and delete their orders.</li>
 <li>Admin will monitor all the orders.</li>
-<li>Provide You notice about changes to the Website, this Privacy Policy, or the Company’s Terms of Use.</li>
 </ul>
