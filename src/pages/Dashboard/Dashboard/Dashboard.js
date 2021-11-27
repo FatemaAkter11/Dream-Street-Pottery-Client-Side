@@ -34,7 +34,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
-    const { admin } = useAuth();
+    const { admin, logout } = useAuth();
 
 
     const handleDrawerToggle = () => {
@@ -66,7 +66,7 @@ function Dashboard(props) {
                 <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Manage Products</Button></Link>
 
             </Box>}
-            <Link to='/home' style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ m: 2 }} color="warning">Logout</Button></Link>
+            <Button onClick={logout} sx={{ m: 2 }} color="warning" variant="contained">Logout</Button>
             <Divider />
             <Divider />
 
