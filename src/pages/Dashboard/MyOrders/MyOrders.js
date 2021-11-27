@@ -1,57 +1,58 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Container } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
+import './MyOrders.css';
 
 const MyOrders = () => {
-    const [orders, setOrders] = useState([]);
-    const [status, setStatus] = useState("");
+    const [products, setProducts] = useState([]);
+    const [control, setControl] = useState(false);
+    const { user } = useAuth();
 
-    const handleStatus = (e) => {
-        setStatus(e.target.value);
-    };
     useEffect(() => {
-        fetch('https://dry-waters-74800.herokuapp.com/orders')
-            .then(res => res.json())
-            .then(data => setOrders(data));
-    }, [])
+        fetch("https://dry-waters-74800.herokuapp.com/orders")
+            .then((res) => res.json())
+            .then((data) => setProducts(data));
+    }, [control]);
 
-    const handleDelete = id => {
-        const url = `https://dry-waters-74800.herokuapp.com/deleteOrder/${id}`;
-        fetch(url, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                alert('Are you sure order deleted?');
-                const remaining = orders.filter(order => order._id !== id);
-                setOrders(remaining);
+    const handleDelete = (id) => {
+        const proceed = window.confirm("Are you Sure,you want to delete?");
+        if (proceed) {
+            fetch(`https://dry-waters-74800.herokuapp.com/deleteOrder/${id}`, {
+                method: "DELETE"
             })
-    }
-
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.deletedCount) {
+                        setControl(!control);
+                        alert("deleted Successfully");
+                    }
+                });
+            console.log(id);
+        }
+    };
     return (
-        <div>
-            <h2 className="mt-5">My Orders : {orders.length}</h2>
-            <hr />
-            <Container className="py-5 mt-3">
-                {
-                    orders?.map((order) => <Card className="my-5" style={{ backgroundColor: 'honeydew' }} key={order.id}>
-                        <div className="py-5">
-                            <h1>Title: {order.title}</h1>
-                            <h3>Product Id: {order._id}</h3>
-                            <h3>User Name: {order.name}</h3>
-                            <button className="btn btn-danger" onClick={() => handleDelete(order._id)}>Delete</button>
-                            <br />
-                            <br />
-
-                            <button onChange={handleStatus} className="btn btn-danger"
-                            >{order.status}</button>
+        <div className="myorder">
+            <h1 className="order">Orders of {user.displayName} </h1>
+            <div className="orders">
+                <div className="row container mx-auto ">
+                    {products?.map((order) => (
+                        <div className="col-md-4">
+                            <div className="order border border p-3 order-card">
+                                <h6>Name:{order?.name}</h6>
+                                <h5 className="text-danger"> Price :{order?.price}$</h5>
+                                <p>Email:{order?.email}</p>
+                                <p>Title:{order?.title}</p>
+                                <p className="text-danger">Status:{order?.status}</p>
+                                <button
+                                    onClick={() => handleDelete(order?._id)}
+                                    className="btn"
+                                >
+                                    Cancel
+                                </button>
+                            </div>
                         </div>
-
-                    </Card>)
-                }
-
-            </Container>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 };

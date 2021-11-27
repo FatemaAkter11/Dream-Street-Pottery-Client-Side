@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Review from '../../Dashboard/Review/Review';
 import Banner from '../Banner/Banner';
 import Feedback from '../Feedback/Feedback';
 import Product from '../Product/Product';
@@ -40,7 +39,7 @@ const Home = () => {
             </div>
             {/* review */}
             <div className="row">
-                <h1 className="fw-bold fs-1 mb-5">Users Review</h1>
+                <h1 className="fw-bold fs-1 my-5">Users Review</h1>
                 <div className="col-md-12">
                     {/* review data load */}
                     <div className="row ms-4">

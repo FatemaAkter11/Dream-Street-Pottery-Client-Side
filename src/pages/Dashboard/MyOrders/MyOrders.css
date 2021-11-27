@@ -1,0 +1,16 @@
+.order{
+    color: #105652;
+    margin:50px 0;
+}
+.order-card{
+        background-color: rgb(236, 199, 192);
+        border-radius: 20px;
+}
+.btn{
+    background-color:  rgb(41, 14, 14);
+    color: white;
+    outline: none;
+    border: none;
+    padding: 10px 34px;
+    border-radius: 40px;
+}

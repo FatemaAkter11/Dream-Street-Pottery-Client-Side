@@ -30,7 +30,7 @@ const ManageOrder = () => {
 
     //delete
     const handleDelete = (id) => {
-        const proceed = window.confirm("Are you Sure,you wan to delete?");
+        const proceed = window.confirm("Are you Sure,you want to delete?");
         if (proceed) {
             fetch(`https://dry-waters-74800.herokuapp.com/deleteOrder/${id}`, {
                 method: "DELETE"
@@ -58,7 +58,6 @@ const ManageOrder = () => {
                                 <th>Product</th>
                                 <th>Price</th>
                                 <th>By</th>
-
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -69,9 +68,7 @@ const ManageOrder = () => {
                                     <td>{index}</td>
                                     <td>{order.name}</td>
                                     <td>$ {order.price}</td>
-                                    <td>{order.Email}</td>
-                                    <td>{order.Address}</td>
-                                    <td>{order.Mobile}</td>
+                                    <td>{order.email}</td>
 
                                     <td>
                                         <input

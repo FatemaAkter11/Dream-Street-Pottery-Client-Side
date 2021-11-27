@@ -29,7 +29,7 @@ const ManageProducts = () => {
 
     return (
         <div className="p-3 pottery">
-            <h2 className="mb-5">All Products</h2>
+            <h2 className="mb-5">Manage All Products</h2>
             <div className="products">
                 <div className="row container mx-auto">
                     {products?.map((product) => (
