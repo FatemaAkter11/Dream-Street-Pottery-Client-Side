@@ -1,43 +1,59 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Container } from 'react-bootstrap';
+import './ManageProducts.css';
 
 const ManageProducts = () => {
     const [products, setProducts] = useState([])
+    const [control, setControl] = useState(false);
     useEffect(() => {
-        fetch('https://dry-waters-74800.herokuapp.com/products')
-            .then(res => res.json())
-            .then(data => setProducts(data));
-    }, [])
+        fetch("https://dry-waters-74800.herokuapp.com/products")
+            .then((res) => res.json())
+            .then((data) => setProducts(data));
+    }, [control]);
 
-    const handleDelete = id => {
-        const url = `https://dry-waters-74800.herokuapp.com/products/${id}`;
-        fetch(url, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                alert('Product deleted');
-                const remaining = products.filter(product => product._id !== id);
-                setProducts(remaining);
+    const handleDelete = (id) => {
+        const proceed = window.confirm("Are you Sure,you wan to delete?");
+        if (proceed) {
+            fetch(`https://dry-waters-74800.herokuapp.com/deleteProduct/${id}`, {
+                method: "DELETE"
             })
-    }
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.deletedCount) {
+                        setControl(!control);
+                        alert("deleted Successfully");
+                    }
+                });
+            console.log(id);
+        }
+    };
 
     return (
-        <div>
-            <h2 className="mt-5">Manage Products</h2>
-            <hr />
-            <Container className="py-5 my-5">
-                {
-                    products?.map((product) => <Card className="my-5 shadow-lg" style={{ backgroundColor: 'honeydew' }} key={product.id}>
-                        <div className="py-5">
-                            <img className="w-25" src={product.img} alt="" />
-                            <h3>{product.title}</h3>
-                            <button className="btn btn-danger" onClick={() => handleDelete(product._id)}>Delete</button>
+        <div className="p-3 pottery">
+            <h2 className="mb-5">All Products</h2>
+            <div className="products">
+                <div className="row container mx-auto">
+                    {products?.map((product) => (
+                        <div className="col-md-4">
+                            <div className="product-card border border my-2 p-3">
+                                <div className="products-img ">
+                                    <img className="w-100" src={product?.img} alt="" />
+                                </div>
+
+                                <h6>{product?.ModelName}</h6>
+
+                                <p>{product?.Description}</p>
+                                <h3 className="text-danger"> Cost : $ {product?.price}</h3>
+                                <button
+                                    onClick={() => handleDelete(product?._id)}
+                                    className="btn"
+                                >
+                                    Delete Product
+                                </button>
+                            </div>
                         </div>
-                    </Card>)
-                }
-            </Container>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 };

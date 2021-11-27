@@ -1,0 +1,31 @@
+.product-card{
+    background-color: rgb(236, 199, 192);
+    border-radius: 20px;
+    min-height: 500px;
+}
+.pottery h2{
+    color:#105652;
+    font-weight: 700;
+}
+
+.product-card h6{
+    color:#105652;
+    font-weight: 700;
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.product-card p{
+    font-size: 18px;
+}
+
+.product-card .btn{
+    background-color:  rgb(41, 14, 14);
+    color: white;
+    outline: none;
+    border: none;
+    padding: 10px 34px;
+    border-radius: 40px;
+}
+
+
